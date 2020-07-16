@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReservationContainer from '../ReservationContainer'
 import { getReservations } from '../apiCalls';
 
 class App extends Component {
   constructor () {
     super();
-    this.state = {
-      
+    this.state = { 
+      reservations: []
     }
   }
 
 
-  componentDidMount = async () => {
-    try {
-      const reservations = await getReservations();
-      this.setState({ reservation: reservations})
-    } catch(error) {
-      this.setState({ error: error })
-    }
-
+  componentDidMount = () => {
+      getReservations()
+        .then((reservations) => this.setState({ reservations }))
+        .catch((error) => console.log(error))
   }
 
 
@@ -31,7 +28,9 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+        <ReservationContainer
+          reservations={this.state.reservations}
+        />
         </div>
       </div>
     )
