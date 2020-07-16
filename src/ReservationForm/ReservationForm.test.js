@@ -14,11 +14,17 @@ describe("ReservationForm", () => {
     // Execution: grab the elements we are looking for
 
     const nameInput = getByPlaceholderText('Name')
+    const dateInput = getByPlaceholderText('Date (mm/dd)');
+    const timeInput = getByPlaceholderText('Time');
+    const guestInput = getByPlaceholderText('Number of guests')
     const reservationBtn = getByRole('button')
 
     // Assertion: Make sure those elements are appearing in the DOM
 
     expect(nameInput).toBeInTheDocument();
+    expect(dateInput).toBeInTheDocument();
+    expect(timeInput).toBeInTheDocument();
+    expect(guestInput).toBeInTheDocument();
     expect(reservationBtn).toBeInTheDocument();
   });
 
