@@ -1,5 +1,5 @@
 import React from "react";
-import ReservationCard from "./ReservationCard/ReservationCard";
+import ReservationCard from "../ReservationCard/ReservationCard";
 
 const ReservationContainer = ({ reservations }) => {
   const reservationCards = reservations.map((reservation) => {

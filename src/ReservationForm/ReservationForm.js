@@ -45,7 +45,7 @@ class ReservationForm extends Component {
         <input
           type="text"
           name="date"
-          placeholder="Date"
+          placeholder="Date (mm/dd)"
           value={this.state.date}
           onChange={this.handleChange}
         />
@@ -59,11 +59,11 @@ class ReservationForm extends Component {
         <input
           type="number"
           name="number"
-          placeholder="Guest Amount"
+          placeholder="Number of guests"
           value={this.state.number}
           onChange={this.handleChange}
         />
-        <button onClick={this.handleSubmit}>Make A Reservation!</button>
+        <button onClick={this.handleSubmit}>Make Reservation</button>
       </form>
     );
   }

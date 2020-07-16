@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import ReservationContainer from '../ReservationContainer'
+import ReservationContainer from '../ReservationContainer/ReservationContainer'
 import { getReservations, postReservation } from '../apiCalls';
-import ReservationForm from '../ReservationForm';
+import ReservationForm from '../ReservationForm/ReservationForm';
 
 class App extends Component {
   constructor () {
