@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReservationContainer from '../ReservationContainer'
-import { getReservations } from '../apiCalls';
+import { getReservations, postReservation } from '../apiCalls';
+import ReservationForm from '../ReservationForm';
 
 class App extends Component {
   constructor () {
@@ -18,6 +19,20 @@ class App extends Component {
         .catch((error) => console.log(error))
   }
 
+    saveReservation = (newReservation) => {
+      this.setState({
+        reservations: [...this.state.reservations, newReservation],
+      });
+      this.addNewReservation(newReservation);
+    };
+
+    addNewReservation = async ({ name, date, time, number }) => {
+      postReservation(name, date, time, number)
+      .then((response) => response.json())
+      .catch((error) => console.log(error))
+    }
+
+
 
   render() {
     console.log(this.state)
@@ -28,6 +43,10 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
+        <ReservationForm
+        reservations={this.state.reservations}
+        saveReservation={this.saveReservation}
+        />
         <ReservationContainer
           reservations={this.state.reservations}
         />
